@@ -1,0 +1,29 @@
+spring:
+  application:
+    ####注册中心应用名称
+    name: config-client
+  cloud:
+    config:
+      #      uri: http://localhost:7001/
+      label: master
+      ####读取后缀
+      profile: dev
+      ####读取config-server注册地址
+      discovery:
+        service-id: config-server
+        enabled: true
+#####    eureka服务注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka
+server:
+  port: 7002
+
+## 开启监控断点，手动刷新
+## 手动刷新地址  /actuator/refresh
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

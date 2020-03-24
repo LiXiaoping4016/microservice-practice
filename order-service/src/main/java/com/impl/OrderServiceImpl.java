@@ -1,7 +1,7 @@
 package com.impl;
 
 
-import com.feigin.MemberApifeign;
+import com.feigin.MemberApiFeign;
 import com.model.BaseResponse;
 import com.service.BaseService;
 import order.service.IOrderService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl extends BaseService implements IOrderService {
     @Autowired
-    private MemberApifeign memberApifeign;
+    private MemberApiFeign memberApifeign;
 
     @Override
     public BaseResponse getOrder(String busin) {

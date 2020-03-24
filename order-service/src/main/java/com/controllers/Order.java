@@ -31,7 +31,7 @@ public class Order {
 
     @PostMapping("/getUserInfoFromMember")
     @ApiOperation("调会员服务查询用户信息")
-    @ApiImplicitParam(name = "name", value = "用户名", required = true, dataType = "String")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "int")
     BaseResponse getUserInfoFromMember(int id, String type) {
         return orderService.getUserInfoFromMember(id, type);
     }

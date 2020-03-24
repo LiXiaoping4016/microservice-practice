@@ -12,6 +12,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @Date 2019/8/28
  */
 @FeignClient(name = "member", fallback = MemberFallback.class)
-public interface MemberApifeign extends IMemberService {
+public interface MemberApiFeign extends IMemberService {
 }
 

@@ -1,7 +1,7 @@
 package com.fallback;
 
 
-import com.feigin.MemberApifeign;
+import com.feigin.MemberApiFeign;
 import com.model.BaseResponse;
 import com.model.ErrorEnum;
 import com.service.BaseService;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @Date 2019/9/1
  */
 @Component
-public class MemberFallback extends BaseService implements MemberApifeign {
+public class MemberFallback extends BaseService implements MemberApiFeign {
     /**
      * Hystrix默认开启线程池隔离，服务降级，服务隔离，服务熔断
      */

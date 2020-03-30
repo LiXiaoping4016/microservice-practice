@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.UserDao">
     <resultMap id="BaseResultMap" type="member.model.User">
-        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, name, age

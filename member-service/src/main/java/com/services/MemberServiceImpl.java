@@ -4,6 +4,7 @@ package com.services;
 import com.dao.UserDao;
 import com.model.BaseResponse;
 import com.service.BaseService;
+import com.util.RedisUtil;
 import member.model.User;
 import member.service.IMemberService;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +35,14 @@ public class MemberServiceImpl extends BaseService implements IMemberService {
                 e.printStackTrace();
             }
         }
-        User user = userDao.selectByPrimaryKey(id);
+        Object result = RedisUtil.get(id);
+        User user;
+        if (result == null) {
+            user = userDao.selectByPrimaryKey(id);
+            RedisUtil.set(id, user);
+        } else {
+            user = (User) result;
+        }
         user.setOtherDate("Port:" + serverPort);
         return setSuccess(user);
     }

@@ -24,9 +24,8 @@ public class Member {
     @PostMapping("/getUserInfo")
     @ApiOperation("获取会员相关信息")
     @ApiImplicitParam(name = "id", value = "用户编号", required = true, dataType = "String")
-    BaseResponse getUserInfo(int id, String type) {
-        BaseResponse userInfo = memberService.getUserInfo(id, type);
-        return userInfo;
+    public BaseResponse getUserInfo(int id, String type) {
+        return memberService.getUserInfo(id, type);
     }
 
 }

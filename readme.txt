@@ -6,3 +6,4 @@
 5. 基于swagger实时生成API文档；
 6. 基于zuul实现请求过滤；
 7. 整合了 mybatis 和 druid数据库连接池；
+8. 整合redis,作为数据库缓存；

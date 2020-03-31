@@ -1,6 +1,6 @@
 package member.model;
 
-import lombok.Data;
+import java.io.Serializable;
 
 /**
  * 用户
@@ -8,11 +8,10 @@ import lombok.Data;
  * @Author lixp23692
  * @Date 2019/8/30
  */
-@Data
-public class User {
+public class User implements Serializable {
     private int id;
     private String name;
-    private Integer age;
+    private int age;
     private String otherDate;
 
     public int getId() {
@@ -31,11 +30,11 @@ public class User {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

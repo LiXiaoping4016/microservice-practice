@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrderDao">
+    <resultMap id="BaseResultMap" type="order.model.Order">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="goods" jdbcType="VARCHAR" property="goods"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+    </resultMap>
+    <resultMap id="FullOrder" type="com.entity.FullOrder">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="goods" jdbcType="VARCHAR" property="goods"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, goods, userId
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from orders
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="FullOrder">
+        select
+        <include refid="Base_Column_List"/>
+        from orders
+    </select>
+</mapper>

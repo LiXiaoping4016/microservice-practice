@@ -1,6 +1,7 @@
 package member.service;
 
 import com.model.BaseResponse;
+import member.model.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,4 +15,7 @@ public interface IMemberService {
 
     @PostMapping("/getUserInfo")
     BaseResponse getUserInfo(@RequestParam("id") int id, @RequestParam("type") String type);
+
+    @PostMapping("/getUserInfoById")
+    User getUserInfoById(@RequestParam("id") int id);
 }

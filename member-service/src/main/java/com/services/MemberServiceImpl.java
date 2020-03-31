@@ -46,4 +46,17 @@ public class MemberServiceImpl extends BaseService implements IMemberService {
         user.setOtherDate("Port:" + serverPort);
         return setSuccess(user);
     }
+
+    @Override
+    public User getUserInfoById(int id) {
+        Object result = RedisUtil.get(id);
+        User user;
+        if (result == null) {
+            user = userDao.selectByPrimaryKey(id);
+            RedisUtil.set(id, user);
+        } else {
+            user = (User) result;
+        }
+        return user;
+    }
 }

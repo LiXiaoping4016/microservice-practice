@@ -9,7 +9,7 @@ import com.model.BaseResponse;
  * @Date 2019/8/30
  */
 public interface IOrderService {
-    BaseResponse getOrder(String busin);
+    BaseResponse getOrder(int id);
 
     BaseResponse getUserInfoFromMember(int id, String type);
 }

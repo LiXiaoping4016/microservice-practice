@@ -1,14 +1,17 @@
 package com.controllers;
 
+import com.entity.FullOrder;
 import com.impl.OrderServiceImpl;
 import com.model.BaseResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 订单服务
@@ -23,10 +26,10 @@ public class Order {
     private OrderServiceImpl orderService;
 
     @PostMapping("/getOrder")
-    @ApiOperation("下单")
-    @ApiImplicitParam(name = "busin", value = "业务", required = true, dataType = "String")
-    BaseResponse getOrder(String busin) {
-        return orderService.getOrder(busin);
+    @ApiOperation("查询订单")
+    @ApiImplicitParam(name = "id", value = "订单号", required = true, dataType = "int")
+    BaseResponse getOrder(int id) {
+        return orderService.getOrder(id);
     }
 
     @PostMapping("/getUserInfoFromMember")
@@ -36,4 +39,9 @@ public class Order {
         return orderService.getUserInfoFromMember(id, type);
     }
 
+    @RequestMapping("/getAllOrder")
+    @ApiOperation("查询所有订单")
+    List<FullOrder> getAllOrder() {
+        return orderService.getAllOrder();
+    }
 }

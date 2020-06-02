@@ -66,6 +66,11 @@ spring:
         reset-enable: true
         login-username: druid
         login-password: druid
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:

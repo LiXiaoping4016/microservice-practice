@@ -76,6 +76,11 @@ spring:
         max-idle: 10
         max-active: 100
     timeout: 5000
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 
 ###服务注册到eureka地址
